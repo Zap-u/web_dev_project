@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HobbyBC</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="quiz.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>HobbyBC</h1>
+      <p>Discover your next passion</p>
+    </header>
+
+    <nav>
+      <button class="active">Home</button>
+      <button>Hobbies</button>
+      <button>Community</button>
+    </nav>
+
+    <section class="welcome">
+      <h2>Welcome to HobbyBC</h2>
+      <p>Your gateway to discovering and exploring new hobbies</p>
+      <p>
+        Life is too short to be bored! HobbyBC helps you discover activities
+        that match your interests, personality, and lifestyle. Whether you're
+        looking for something active, creative, social, or relaxing, we've got
+        you covered.
+      </p>
+      <p>
+        Take our personalized quiz to get hobby recommendations, explore our
+        extensive catalog of hobbies organized by category, and connect with a
+        community of enthusiasts who share your interests.
+      </p>
+    </section>
+
+    <section class="hobbies-section">
+      <h3>Most Popular Hobbies</h3>
+      <div class="hobby-grid">
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/camera.png"
+            alt="Photography"
+          />
+          <p>Photography</p>
+        </div>
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/open-book--v2.png"
+            alt="Reading"
+          />
+          <p>Reading</p>
+        </div>
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/controller.png"
+            alt="Gaming"
+          />
+          <p>Gaming</p>
+        </div>
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/musical-notes.png"
+            alt="Music"
+          />
+          <p>Music</p>
+        </div>
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/dumbbell.png"
+            alt="Fitness"
+          />
+          <p>Fitness</p>
+        </div>
+
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/cooking-book.png"
+            alt="Cooking"
+          />
+          <p>Cooking</p>
+        </div>
+
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/fluency/96/paint-palette.png"
+            alt="Painting"
+          />
+          <p>Painting</p>
+        </div>
+
+        <div class="hobby-card">
+          <img
+            src="https://img.icons8.com/parakeet/96/hot-glue-gun.png"
+            alt="Crafting"
+          />
+          <p>Crafting</p>
+        </div>
+      </div>
+      <div class="quiz-container">
+        <h1>Find Your Perfect Hobby</h1>
+
+        <div class="quiz-card">
+          <h2>Hobby Discovery Quiz</h2>
+          <p id="question-number">Question 1 of 6</p>
+
+          <div class="progress-bar-background">
+            <div id="progress-bar"></div>
+          </div>
+
+          <p id="question-text"></p>
+
+          <div id="answers"></div>
+
+          <div class="buttons">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

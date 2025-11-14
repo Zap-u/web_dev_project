@@ -1,0 +1,198 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #f4e9ff, #ffffff);
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px 30px;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #a44bff;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: #f2e4ff;
+  border-radius: 25px;
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  padding: 12px 0;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+nav button:hover,
+nav button.active {
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.welcome {
+  background: rgba(255, 255, 255, 0.7);
+  width: 80%;
+  margin: 40px auto;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #e0ccff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.welcome h2 {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.welcome p {
+  color: #666;
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+.hobbies-section {
+  width: 85%;
+  margin: 40px auto;
+}
+
+.hobbies-section h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.hobby-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.hobby-card {
+  background: #fff;
+  border-radius: 20px;
+  width: 200px;
+  height: 150px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  padding-top: 20px;
+}
+
+.hobby-card:hover {
+  transform: translateY(-5px);
+}
+
+.hobby-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.hobby-card p {
+  font-weight: 600;
+  color: #333;
+}
+.quiz-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0dfff;
+}
+
+.quiz-card h2 {
+  margin-bottom: 5px;
+}
+
+#question-number {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Progress Bar */
+.progress-bar-background {
+  background: #f3e5ff;
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#progress-bar {
+  background: #c270ff;
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+/* Answers */
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.answer-option input {
+  transform: scale(1.2);
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.buttons button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#prevBtn {
+  background: #f5e9ff;
+}
+
+#nextBtn {
+  background: #d08bff;
+  color: white;
+}
