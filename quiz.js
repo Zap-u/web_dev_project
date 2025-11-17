@@ -1,3 +1,55 @@
+
+
+//questions: [physical, creative, calm, learning, indoor-outoor, hands-on]
+const hobbies = {
+  photography: [2,4,3,3,3,4],
+  reading: [0,2,4,3,1,0],
+  gaming: [0,2,2,2,0,1],
+  music: [1,4,3,4,1,3],
+  fitness: [4,1,1,3,3,3],
+  cooking: [1,3,3,4,1,4],
+  painting: [1,4,4,4,1,4],
+  crafting: [1,4,4,3,0,3]
+};
+
+function distance(userAnswers, hobby) {
+  let sum = 0;
+  for (let i = 0; i<userAnswers.length;i++) {
+    sum += Math.abs(userAnswers[i] - hobby[i]);
+  }
+  return sum;
+}
+
+function findBestHobby(userAnswers) {
+  let filteredHobbies = [];
+  let filteredScores = [];
+  for (let hobby in hobbies) {
+    console.log(hobbies[hobby]);
+    let s = distance(userAnswers,hobbies[hobby]);
+    
+    // Add hobby to filtered lists, which are sorted
+    let added = false;
+    for(let i = 0; i<filteredScores.length; i++) {
+      if (s < filteredScores[i]) {
+        filteredScores.splice(i,0,s);
+        filteredHobbies.splice(i,0,hobby);
+        added = true;
+        break;
+      }
+    }
+    if(!added) {
+      filteredScores.push(s);
+      filteredHobbies.push(hobby);
+    }
+    
+  }
+  console.log(filteredHobbies);
+  console.log(filteredScores);
+  console.log("the best hobby for you is: " + filteredHobbies[0]);
+
+  return {filteredHobbies, filteredScores}
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const questions = [
     {
@@ -115,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (firstInput) firstInput.focus();
     } else {
       console.log("Responses:", responses);
+      findBestHobby(responses)
       const avg =
         responses.reduce((s, v) => s + (v ?? 0), 0) / responses.length;
       alert(
