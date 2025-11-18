@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HobbyBC – Community</title>
+  <link rel="stylesheet" href="community.css" />
+  <script defer src="community.js"></script>
+</head>
+
+<body>
+  <!-- SAME HEADER AS HOME -->
+  <header>
+    <h1>HobbyBC</h1>
+    <p>Discover your next passion</p>
+  </header>
+
+  <!-- SAME NAV -->
+  <nav>
+    <button onclick="location.href='index.html'">Home</button>
+    <button onclick="location.href='hobbies.html'">Hobbies</button>
+    <button class="active" onclick="location.href='community.html'">Community</button>
+  </nav>
+
+  <section class="community-container">
+    
+    <!-- MAIN COMMUNITY TITLE -->
+    <h2 class="title-main">Community Discussions</h2>
+    <p class="subtitle">Connect with others who share your interests</p>
+
+    <!-- STATISTICS -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-icon">👥</span>
+        <p class="stat-number">11</p>
+        <p class="stat-label">Members</p>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon">💬</span>
+        <p class="stat-number">45</p>
+        <p class="stat-label">Discussions</p>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon">💜</span>
+        <p class="stat-number">289</p>
+        <p class="stat-label">Likes</p>
+      </div>
+    </div>
+
+    <!-- START DISCUSSION -->
+    <h3 class="section-title">Start a Discussion</h3>
+    <div class="create-post-card">
+      <textarea id="postText" placeholder="Share your hobby experiences, ask questions, or connect with others..."></textarea>
+      <button id="postBtn" class="post-button">Post to Community</button>
+    </div>
+
+    <!-- RECENT DISCUSSIONS -->
+    <h3 class="section-title">Recent Discussions</h3>
+    <div id="postsList" class="posts-list">
+      <!-- JS will insert posts here -->
+    </div>
+
+  </section>
+
+</body>
+</html>
