@@ -17,10 +17,6 @@ postBtn.onclick = () => {
   postText.value = "";
 };
 
-/* -----------------------------
-   BUILD POST ELEMENT
------------------------------- */
-
 function buildPost(author, text, tag) {
   const initials = createInitials(author);
 
@@ -54,35 +50,26 @@ function buildPost(author, text, tag) {
   return post;
 }
 
-/* -----------------------------
-   LIKE SYSTEM (1 per user)
------------------------------- */
-
 function setupLikes(post) {
-    const likeBtn = post.querySelector(".likes");
-  
-    let liked = false;
-    let likes = 0;
-  
-    likeBtn.onclick = () => {
-      liked = !liked; // toggle like state
-  
-      if (liked) {
-        likes++;
-        likeBtn.classList.add("liked");
-      } else {
-        likes--;
-        likeBtn.classList.remove("liked");
-      }
-  
-      likeBtn.textContent = `❤️ ${likes}`;
-    };
-  }
-  
+  const likeBtn = post.querySelector(".likes");
 
-/* -----------------------------
-   COMMENT SYSTEM
------------------------------- */
+  let liked = false;
+  let likes = 0;
+
+  likeBtn.onclick = () => {
+    liked = !liked; // toggle like state
+
+    if (liked) {
+      likes++;
+      likeBtn.classList.add("liked");
+    } else {
+      likes--;
+      likeBtn.classList.remove("liked");
+    }
+
+    likeBtn.textContent = `❤️ ${likes}`;
+  };
+}
 
 function setupComments(post) {
   const commentBtn = post.querySelector(".comment-btn");
@@ -113,10 +100,6 @@ function setupComments(post) {
     };
   };
 }
-
-/* -----------------------------
-   BUILD COMMENT (WITH REPLIES)
------------------------------- */
 
 function buildComment(author, text) {
   const initials = createInitials(author);
@@ -173,3 +156,5 @@ function buildComment(author, text) {
 
   return wrap;
 }
+
+/*ULADZISLAU HOILA*/
