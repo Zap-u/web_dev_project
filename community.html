@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HobbyBC – Community</title>
-    <link rel="stylesheet" href="community.css" />
-    <script defer src="community.js"></script>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HobbyBC - Community</title>
+    <link rel="stylesheet" href="community.css">
+    </head>
+<body>
 
-  <body>
-    <!-- SAME HEADER AS HOME -->
     <header>
-      <h1>HobbyBC</h1>
-      <p>Discover your next passion</p>
+        <h1>HobbyBC</h1>
+        <p>Discover your next passion</p>
     </header>
 
-    <!-- SAME NAV -->
     <nav>
       <button onclick="location.href='index.html'">Home</button>
       <button onclick="location.href='hobbies.html'">Hobbies</button>
@@ -23,50 +20,53 @@
         Community
       </button>
     </nav>
+    
+    <div class="community-container">
+        <h2 class="title-main">Community Discussions</h2>
+        <p class="subtitle">Connect with others who share your interests</p>
 
-    <section class="community-container">
-      <!-- MAIN COMMUNITY TITLE -->
-      <h2 class="title-main">Community Discussions</h2>
-      <p class="subtitle">Connect with others who share your interests</p>
-
-      <!-- STATISTICS -->
-      <div class="stats-row">
-        <div class="stat-card">
-          <span class="stat-icon">👥</span>
-          <p class="stat-number">11</p>
-          <p class="stat-label">Members</p>
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-icon members-color">👥</span>
+                <span class="stat-number">1,234</span>
+                <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon discussions-color">💬</span>
+                <span class="stat-number">456</span>
+                <span class="stat-label">Discussions</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-icon likes-color">💜</span>
+                <span class="stat-number">2,891</span>
+                <span class="stat-label">Likes</span>
+            </div>
         </div>
 
-        <div class="stat-card">
-          <span class="stat-icon">💬</span>
-          <p class="stat-number">45</p>
-          <p class="stat-label">Discussions</p>
+        <div class="header-with-name-container">
+            <h2 class="section-title">Start a Discussion</h2> 
+            
+            <div id="userNameContainer" class="user-info-bar">
+                <p>Posting as: <span id="currentUserName">Loading...</span></p>
+                <button id="changeNameBtn">Change Name</button>
+            </div>
         </div>
 
-        <div class="stat-card">
-          <span class="stat-icon">💜</span>
-          <p class="stat-number">289</p>
-          <p class="stat-label">Likes</p>
+        <div class="create-post-card">
+            <textarea 
+                id="postText" 
+                placeholder="Share your hobby experiences, ask questions, or connect with others..."
+            ></textarea>
+            <button id="postBtn" class="post-button">Post to Community</button>
         </div>
-      </div>
 
-      <!-- START DISCUSSION -->
-      <h3 class="section-title">Start a Discussion</h3>
-      <div class="create-post-card">
-        <textarea
-          id="postText"
-          placeholder="Share your hobby experiences, ask questions, or connect with others..."
-        ></textarea>
-        <button id="postBtn" class="post-button">Post to Community</button>
-      </div>
+        <h2 class="section-title">Recent Discussions</h2>
+        
+        <div id="postsList" class="posts-list">
+            </div>
 
-      <!-- RECENT DISCUSSIONS -->
-      <h3 class="section-title">Recent Discussions</h3>
-      <div id="postsList" class="posts-list">
-        <!-- JS will insert posts here -->
-      </div>
-    </section>
-  </body>
+    </div>
+
+    <script src="community.js"></script>
+</body>
 </html>
-
-/*ULADZISLAU HOILA

@@ -6,7 +6,6 @@ body {
   color: #333;
 }
 
-/* SAME HEADER FROM HOME */
 header {
   text-align: center;
   padding: 50px 20px 30px;
@@ -23,7 +22,7 @@ header p {
   font-size: 1.1rem;
 }
 
-/* SAME NAV */
+/* --- NAV STYLES --- */
 nav {
   display: flex;
   justify-content: space-between;
@@ -70,7 +69,7 @@ nav button.active {
   margin-bottom: 30px;
 }
 
-/* STATS */
+/* --- STATS SECTION --- */
 .stats-row {
   display: flex;
   justify-content: space-between;
@@ -92,22 +91,77 @@ nav button.active {
   margin-bottom: 8px;
 }
 
+.members-color {
+  color: #a44bff;
+}
+.discussions-color {
+  color: #7560a8;
+}
+.likes-color {
+  color: #d64bff;
+}
+
 .stat-number {
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  color: #333;
 }
 
 .stat-label {
   color: #666;
 }
 
-/* SECTION TITLE */
-.section-title {
-  margin: 20px 0 10px;
-  color: #555;
+.header-with-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #a44bff;
 }
 
-/* CREATE POST */
+.section-title {
+  margin: 0;
+  color: #555;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.user-info-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: 0.95rem;
+}
+
+#currentUserName {
+  font-weight: bold;
+  color: #a44bff;
+}
+
+#changeNameBtn {
+  background: #d6a6ff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#changeNameBtn:hover {
+  background: #c48bff;
+}
+
+.user-info-bar span {
+  margin-top: 3px;
+}
+
+/* --- CREATE POST --- */
 .create-post-card {
   background: #fff;
   padding: 20px;
@@ -120,12 +174,20 @@ nav button.active {
 .create-post-card textarea {
   width: 100%;
   height: 120px;
-  padding: 0px;
+  padding: 10px;
   font-size: 1rem;
   border-radius: 12px;
   border: 1px solid #d9c3ff;
   resize: none;
   outline: none;
+  box-sizing: border-box;
+  text-align: left;
+  direction: rtl;
+}
+
+.create-post-card textarea:focus {
+  text-align: left;
+  direction: ltr;
 }
 
 .post-button {
@@ -144,13 +206,14 @@ nav button.active {
   background: #c48bff;
 }
 
-/* POSTS */
+/* --- POSTS --- */
 .post-card {
   background: #fff;
   border-radius: 20px;
   border: 1px solid #eddcff;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
@@ -180,17 +243,20 @@ nav button.active {
 }
 
 .post-time {
+  margin-top: 1px;
   color: #777;
   font-size: 0.9rem;
 }
 
-/* CATEGORY */
+/* CATEGORY TAG */
 .post-tag {
   background: #e5d4ff;
   padding: 5px 12px;
   border-radius: 10px;
   font-size: 0.85rem;
   float: right;
+  color: #a44bff;
+  font-weight: 600;
 }
 
 /* TEXT */
@@ -199,21 +265,117 @@ nav button.active {
   color: #444;
 }
 
-/* FOOTER ICONS */
+/* --- POST FOOTER (Exact Match for Icons/Layout) --- */
 .post-footer {
   display: flex;
   gap: 20px;
   color: #7560a8;
+  font-size: 1rem;
+  margin-top: 10px;
+  align-items: center;
 }
 
-.likes {
+.likes,
+.comment-btn {
   cursor: pointer;
   transition: 0.2s ease;
+  color: #7560a8;
+  font-size: 0.95em;
 }
 
 .likes.liked {
   color: #d64bff;
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
 
-/*ULADZISLAU HOILA*/
+.comments-section {
+  padding: 10px 0;
+}
+
+/* Comment Box is indented only by margin, no left border */
+.comment-box {
+  border-left: none;
+  padding-left: 0;
+  margin-left: 54px;
+  margin-bottom: 10px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 10px;
+  color: #7560a8;
+  font-size: 0.85em;
+  margin-top: 5px;
+  cursor: default;
+  margin-left: 46px;
+}
+
+.comment-likes,
+.reply-btn {
+  cursor: pointer;
+  color: #7560a8;
+}
+
+/* Delete Button Style */
+.delete-btn {
+  font-size: 0.85em;
+  cursor: pointer;
+  color: #e57373;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #d32f2f;
+}
+
+.comment-likes.liked {
+  color: #d64bff;
+  transform: scale(1.05);
+}
+
+/* Reply indentation */
+.reply-section {
+  margin-left: 0;
+  margin-top: 10px;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* Comment Input Box styles */
+.comment-input-box,
+.reply-input-box {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #fcfcfc;
+  border: 1px solid #f2e4ff;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.comment-input {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px;
+  border: 1px solid #d9c3ff;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.comment-submit {
+  align-self: flex-end;
+  background-color: #b98cff;
+  color: white;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.comment-submit:hover {
+  background-color: #a44bff;
+}
