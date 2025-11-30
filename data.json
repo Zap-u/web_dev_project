@@ -1,0 +1,38 @@
+{
+  "home": {
+    "popularHobbies": [
+      {
+        "name": "Photography",
+        "icon": "https://img.icons8.com/fluency/96/camera.png"
+      },
+      {
+        "name": "Reading",
+        "icon": "https://img.icons8.com/fluency/96/open-book--v2.png"
+      },
+      {
+        "name": "Gaming",
+        "icon": "https://img.icons8.com/fluency/96/controller.png"
+      },
+      {
+        "name": "Music",
+        "icon": "https://img.icons8.com/fluency/96/musical-notes.png"
+      },
+      {
+        "name": "Fitness",
+        "icon": "https://img.icons8.com/fluency/96/dumbbell.png"
+      },
+      {
+        "name": "Cooking",
+        "icon": "https://img.icons8.com/fluency/96/cooking-book.png"
+      },
+      {
+        "name": "Painting",
+        "icon": "https://img.icons8.com/fluency/96/paint-palette.png"
+      },
+      {
+        "name": "Crafting",
+        "icon": "https://img.icons8.com/parakeet/96/hot-glue-gun.png"
+      }
+    ]
+  }
+}
