@@ -53,7 +53,7 @@ function renderPopularHobbies(hobbies) {
   grid.innerHTML = hobbies
     .map(
       (hobby) => `
-      <div class="hobby-card">
+      <div class="hobby-card" onclick="location.href='hobby.html?name=${encodeURIComponent(hobby.name)}'" style="cursor: pointer;">
         <img src="${escapeAttr(hobby.icon)}" alt="${escapeAttr(hobby.name)}" />
         <p>${escapeHtml(hobby.name)}</p>
       </div>
@@ -79,13 +79,13 @@ function initQuizIfAvailable() {
   }
 }
 
-function escapeHtml(str = "") {
+export function escapeHtml(str = "") {
   return String(str)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
-function escapeAttr(str = "") {
+export function escapeAttr(str = "") {
   return String(str)
     .replace(/&/g, "&amp;")
     .replace(/"/g, "&quot;")

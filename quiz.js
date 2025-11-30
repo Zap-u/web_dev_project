@@ -167,14 +167,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (firstInput) firstInput.focus();
     } else {
       console.log("Responses:", responses);
-      findBestHobby(responses)
-      const avg =
-        responses.reduce((s, v) => s + (v ?? 0), 0) / responses.length;
-      alert(
-        `Quiz complete! (raw responses: ${responses.join(
-          ", "
-        )})\nApprox score: ${avg.toFixed(2)}`
-      );
+      const result = findBestHobby(responses);
+      const bestHobbyKey = result.filteredHobbies[0];
+      showHobbyResultPopup(bestHobbyKey);
     }
   });
 
@@ -189,4 +184,79 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateQuestion();
+
+  function showHobbyResultPopup(hobbyKey) {
+    // Map lowercase hobby keys to capitalized names in data.json
+    const hobbyNameMap = {
+      photography: "Photography",
+      reading: "Reading",
+      gaming: "Gaming",
+      music: "Music",
+      fitness: "Fitness",
+      cooking: "Cooking",
+      painting: "Painting",
+      crafting: "Crafting"
+    };
+
+    const hobbyName = hobbyNameMap[hobbyKey] || hobbyKey;
+
+    // Fetch hobby data from data.json
+    fetch("data.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load data.json");
+        return res.json();
+      })
+      .then((data) => {
+        const hobby = data.home?.popularHobbies?.find(
+          (h) => h.name === hobbyName
+        );
+
+        if (!hobby) {
+          console.error("Hobby not found:", hobbyName);
+          return;
+        }
+
+        // Create popup overlay
+        const overlay = document.createElement("div");
+        overlay.className = "quiz-result-overlay";
+        overlay.innerHTML = `
+          <div class="quiz-result-popup">
+            <div class="quiz-result-header">
+              <h2>Your Perfect Hobby Match!</h2>
+              <button class="quiz-result-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="quiz-result-content">
+              <div class="quiz-result-icon-wrapper">
+                <img src="${hobby.icon}" alt="${hobby.name}" class="quiz-result-icon" />
+              </div>
+              <h3 class="quiz-result-name">${hobby.name}</h3>
+              <p class="quiz-result-message">Based on your answers, ${hobby.name} is the perfect hobby for you!</p>
+              <a href="hobby.html?name=${encodeURIComponent(hobby.name)}" class="quiz-result-button">
+                Explore ${hobby.name}
+              </a>
+            </div>
+          </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Close button functionality
+        const closeBtn = overlay.querySelector(".quiz-result-close");
+        const closePopup = () => {
+          overlay.remove();
+        };
+
+        closeBtn.addEventListener("click", closePopup);
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) {
+            closePopup();
+          }
+        });
+
+        // Add fade-in animation
+        setTimeout(() => {
+          overlay.classList.add("show");
+        }, 10);
+      });
+  }
 });

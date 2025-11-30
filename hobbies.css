@@ -149,6 +149,12 @@ nav button.active {
   padding: 12px 14px;
   border: 1px solid #efe5ff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hobby-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
 .hobby-card h4 {

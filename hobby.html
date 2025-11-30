@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HobbyBC – Hobby Details</title>
+    <link rel="stylesheet" href="hobby.css" />
+    <script type="module">
+      import { loadLayout } from "./main.js";
+      import { loadHobbyPage } from "./hobby.js";
+
+      loadLayout("hobbies");
+      loadHobbyPage();
+    </script>
+  </head>
+  <body>
+    <header id="header"></header>
+    <nav id="nav"></nav>
+
+    <main class="page">
+      <div id="hobbyContent" class="hobby-content">
+        <!-- Content will be dynamically loaded -->
+      </div>
+    </main>
+  </body>
+</html>
+

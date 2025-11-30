@@ -101,6 +101,7 @@ nav button.active {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
   padding-top: 20px;
+  cursor: pointer;
 }
 
 .hobby-card:hover {
@@ -195,4 +196,120 @@ nav button.active {
 #nextBtn {
   background: #d08bff;
   color: white;
+}
+
+/* Quiz Result Popup */
+.quiz-result-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.quiz-result-overlay.show {
+  opacity: 1;
+}
+
+.quiz-result-popup {
+  background: white;
+  border-radius: 20px;
+  padding: 0;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid #f0dfff;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.quiz-result-overlay.show .quiz-result-popup {
+  transform: scale(1);
+}
+
+.quiz-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 1px solid #f0dfff;
+}
+
+.quiz-result-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #a44bff;
+}
+
+.quiz-result-close {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.quiz-result-close:hover {
+  color: #a44bff;
+}
+
+.quiz-result-content {
+  padding: 30px;
+  text-align: center;
+}
+
+.quiz-result-icon-wrapper {
+  margin-bottom: 20px;
+}
+
+.quiz-result-icon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.quiz-result-name {
+  font-size: 2rem;
+  color: #a44bff;
+  margin: 0 0 15px 0;
+}
+
+.quiz-result-message {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 25px 0;
+}
+
+.quiz-result-button {
+  display: inline-block;
+  background: #d6a6ff;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.quiz-result-button:hover {
+  background: #c48bff;
+  transform: translateY(-2px);
 }
