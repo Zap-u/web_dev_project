@@ -33,6 +33,37 @@
         "name": "Crafting",
         "icon": "https://img.icons8.com/parakeet/96/hot-glue-gun.png"
       }
+    ],
+
+    "extraHobbies": [
+      {
+        "name": "Running",
+        "icon": "https://img.icons8.com/fluency/96/running.png"
+      },
+      {
+        "name": "Yoga",
+        "icon": "https://img.icons8.com/?size=100&id=16959&format=png&color=000000"
+      },
+      {
+        "name": "Journaling",
+        "icon": "https://img.icons8.com/fluency/96/journal.png"
+      },
+      {
+        "name": "Board Games",
+        "icon": "https://img.icons8.com/?size=100&id=CcTzagj3ZPvC&format=png&color=000000"
+      },
+      {
+        "name": "Puzzles",
+        "icon": "https://img.icons8.com/?size=100&id=tAjvBYh8Emhg&format=png&color=000000"
+      },
+      {
+        "name": "Singing",
+        "icon": "https://img.icons8.com/fluency/96/microphone.png"
+      },
+      {
+        "name": "Dance",
+        "icon": "https://img.icons8.com/?size=100&id=16883&format=png&color=000000"
+      }
     ]
   }
 }
