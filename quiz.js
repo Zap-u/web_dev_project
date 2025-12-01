@@ -1,20 +1,25 @@
-
-
 //questions: [physical, creative, calm, learning, indoor-outoor, hands-on]
 const hobbies = {
-  photography: [2,4,3,3,3,4],
-  reading: [0,2,4,3,1,0],
-  gaming: [0,2,2,2,0,1],
-  music: [1,4,3,4,1,3],
-  fitness: [4,1,1,3,3,3],
-  cooking: [1,3,3,4,1,4],
-  painting: [1,4,4,4,1,4],
-  crafting: [1,4,4,3,0,3]
+  photography: [2, 4, 3, 3, 3, 4],
+  reading: [0, 2, 4, 3, 1, 0],
+  gaming: [0, 2, 2, 2, 0, 1],
+  music: [1, 4, 3, 4, 1, 3],
+  fitness: [4, 1, 1, 3, 3, 3],
+  cooking: [1, 3, 3, 4, 1, 4],
+  painting: [1, 4, 4, 4, 1, 4],
+  crafting: [1, 4, 4, 3, 0, 3],
+  running: [4, 0, 2, 2, 4, 2],
+  yoga: [2, 1, 4, 3, 2, 3],
+  journaling: [0, 4, 4, 3, 1, 1],
+  boardgames: [0, 2, 3, 4, 1, 1],
+  puzzles: [0, 2, 4, 3, 1, 1],
+  singing: [1, 4, 3, 4, 1, 2],
+  dance: [4, 4, 2, 3, 2, 2],
 };
 
 function distance(userAnswers, hobby) {
   let sum = 0;
-  for (let i = 0; i<userAnswers.length;i++) {
+  for (let i = 0; i < userAnswers.length; i++) {
     sum += Math.abs(userAnswers[i] - hobby[i]);
   }
   return sum;
@@ -25,29 +30,28 @@ function findBestHobby(userAnswers) {
   let filteredScores = [];
   for (let hobby in hobbies) {
     console.log(hobbies[hobby]);
-    let s = distance(userAnswers,hobbies[hobby]);
-    
+    let s = distance(userAnswers, hobbies[hobby]);
+
     // Add hobby to filtered lists, which are sorted
     let added = false;
-    for(let i = 0; i<filteredScores.length; i++) {
+    for (let i = 0; i < filteredScores.length; i++) {
       if (s < filteredScores[i]) {
-        filteredScores.splice(i,0,s);
-        filteredHobbies.splice(i,0,hobby);
+        filteredScores.splice(i, 0, s);
+        filteredHobbies.splice(i, 0, hobby);
         added = true;
         break;
       }
     }
-    if(!added) {
+    if (!added) {
       filteredScores.push(s);
       filteredHobbies.push(hobby);
     }
-    
   }
   console.log(filteredHobbies);
   console.log(filteredScores);
   console.log("the best hobby for you is: " + filteredHobbies[0]);
 
-  return {filteredHobbies, filteredScores}
+  return { filteredHobbies, filteredScores };
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -195,7 +199,14 @@ document.addEventListener("DOMContentLoaded", () => {
       fitness: "Fitness",
       cooking: "Cooking",
       painting: "Painting",
-      crafting: "Crafting"
+      crafting: "Crafting",
+      running: "Running",
+      yoga: "Yoga",
+      journaling: "Journaling",
+      boardgames: "Board Games",
+      puzzles: "Puzzles",
+      singing: "Singing",
+      dance: "Dance",
     };
 
     const hobbyName = hobbyNameMap[hobbyKey] || hobbyKey;
@@ -207,9 +218,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return res.json();
       })
       .then((data) => {
-        const hobby = data.home?.popularHobbies?.find(
-          (h) => h.name === hobbyName
-        );
+        const allHobbies = [
+          ...(data.home?.popularHobbies || []),
+          ...(data.home?.extraHobbies || []),
+        ];
+
+        const hobby = allHobbies.find((h) => h.name === hobbyName);
 
         if (!hobby) {
           console.error("Hobby not found:", hobbyName);
@@ -227,11 +241,17 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <div class="quiz-result-content">
               <div class="quiz-result-icon-wrapper">
-                <img src="${hobby.icon}" alt="${hobby.name}" class="quiz-result-icon" />
+                <img src="${hobby.icon}" alt="${
+          hobby.name
+        }" class="quiz-result-icon" />
               </div>
               <h3 class="quiz-result-name">${hobby.name}</h3>
-              <p class="quiz-result-message">Based on your answers, ${hobby.name} is the perfect hobby for you!</p>
-              <a href="hobby.html?name=${encodeURIComponent(hobby.name)}" class="quiz-result-button">
+              <p class="quiz-result-message">Based on your answers, ${
+                hobby.name
+              } is the perfect hobby for you!</p>
+              <a href="hobby.html?name=${encodeURIComponent(
+                hobby.name
+              )}" class="quiz-result-button">
                 Explore ${hobby.name}
               </a>
             </div>
