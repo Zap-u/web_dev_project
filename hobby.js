@@ -18,7 +18,11 @@ export function loadHobbyPage() {
     })
     .then((data) => {
       // Find the hobby in popularHobbies
-      const hobby = data.home?.popularHobbies?.find(
+      const hobbyList = [
+        ...(data.home?.popularHobbies || []),
+        ...(data.home?.extraHobbies || []),
+      ];
+      const hobby = hobbyList.find(
         (h) => h.name.toLowerCase() === hobbyName.toLowerCase()
       );
 
