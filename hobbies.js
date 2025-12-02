@@ -93,29 +93,22 @@ export function loadHobbiesPage() {
 
         category.hobbyNames.forEach((name) => {
           const hobby = findHobbyByName(data, name);
-          if (!hobby) {
-            console.warn("Missing hobby in data.json:", name);
-            return;
-          }
+          if (!hobby) return;
 
-          // Create card
           const card = document.createElement("article");
           card.className = "hobby-card";
           card.dataset.hobbyName = hobby.name;
           card.style.cursor = "pointer";
 
-          // Title
           const h4 = document.createElement("h4");
           h4.textContent = hobby.name;
 
-          // Short description from summary field
           const p = document.createElement("p");
           p.textContent = hobby.summary || "";
 
           card.appendChild(h4);
           card.appendChild(p);
 
-          // Link to hobby page
           card.addEventListener("click", () => {
             window.location.href = `hobby.html?name=${encodeURIComponent(
               hobby.name
@@ -130,21 +123,19 @@ export function loadHobbiesPage() {
       });
 
       const sections = Array.from(root.querySelectorAll(".category-section"));
-      const cards = Array.from(root.querySelectorAll(".hobby-card"));
 
       searchInput.addEventListener("input", () => {
         const query = searchInput.value.trim().toLowerCase();
 
         sections.forEach((section) => {
-          let visibleCount = 0;
-          const sectionCards = Array.from(
-            section.querySelectorAll(".hobby-card")
-          );
+          const cards = Array.from(section.querySelectorAll(".hobby-card"));
+          const badge = section.querySelector(".badge");
 
-          sectionCards.forEach((card) => {
+          let visibleCount = 0;
+
+          cards.forEach((card) => {
             const name = card.querySelector("h4").textContent.toLowerCase();
             const desc = card.querySelector("p").textContent.toLowerCase();
-
             const match =
               name.includes(query) || desc.includes(query) || query === "";
 
@@ -152,7 +143,10 @@ export function loadHobbiesPage() {
             if (match) visibleCount++;
           });
 
-          // Hide category if no cards match search
+          // Update badge number
+          badge.textContent = visibleCount;
+
+          // Hide entire section if none match
           section.style.display = visibleCount > 0 ? "" : "none";
         });
       });
