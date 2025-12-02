@@ -21,12 +21,7 @@ const CATEGORY_DEFINITIONS = [
   },
 ];
 
-function getShortDescription(aboutText) {
-  if (!aboutText) return "";
-  const firstSentence = aboutText.split(".")[0].trim();
-  return firstSentence ? firstSentence + "." : aboutText;
-}
-
+// Pull hobby data by name from data.json
 function findHobbyByName(data, name) {
   const all = [
     ...(data.home?.popularHobbies || []),
@@ -35,7 +30,7 @@ function findHobbyByName(data, name) {
   return all.find((h) => h.name === name) || null;
 }
 
-// This will be called from hobbies.html
+// Main rendering function — called from hobbies.html
 export function loadHobbiesPage() {
   const root = document.getElementById("hobbiesRoot");
   if (!root) return;
@@ -46,7 +41,6 @@ export function loadHobbiesPage() {
       return res.json();
     })
     .then((data) => {
-      // --- Build Explore + Search section ---
       const exploreSection = document.createElement("section");
       exploreSection.className = "explore-section";
       exploreSection.innerHTML = `
@@ -69,56 +63,63 @@ export function loadHobbiesPage() {
 
       const searchInput = exploreSection.querySelector("input");
 
-      // --- Build Category sections from definitions + data.json ---
       CATEGORY_DEFINITIONS.forEach((category) => {
         const section = document.createElement("section");
         section.className = "category-section";
 
+        // Header
         const header = document.createElement("div");
         header.className = "category-header";
 
         const titleWrap = document.createElement("div");
         titleWrap.className = "category-title";
 
-        const title = document.createElement("h3");
-        title.textContent = category.title;
+        const h3 = document.createElement("h3");
+        h3.textContent = category.title;
 
         const badge = document.createElement("span");
         badge.className = "badge";
-        badge.textContent = category.hobbyNames.length.toString();
+        badge.textContent = category.hobbyNames.length;
 
-        titleWrap.appendChild(title);
+        titleWrap.appendChild(h3);
         titleWrap.appendChild(badge);
         header.appendChild(titleWrap);
+
         section.appendChild(header);
 
+        // Card grid
         const grid = document.createElement("div");
         grid.className = "cards-grid";
 
-        category.hobbyNames.forEach((hobbyName) => {
-          const hobbyData = findHobbyByName(data, hobbyName);
-          if (!hobbyData) {
-            console.warn("Hobby not found in data.json:", hobbyName);
+        category.hobbyNames.forEach((name) => {
+          const hobby = findHobbyByName(data, name);
+          if (!hobby) {
+            console.warn("Missing hobby in data.json:", name);
             return;
           }
 
+          // Create card
           const card = document.createElement("article");
           card.className = "hobby-card";
-          card.dataset.hobbyName = hobbyData.name;
+          card.dataset.hobbyName = hobby.name;
           card.style.cursor = "pointer";
 
+          // Title
           const h4 = document.createElement("h4");
-          h4.textContent = hobbyData.name;
+          h4.textContent = hobby.name;
 
+          // Short description from summary field
           const p = document.createElement("p");
-          p.textContent = getShortDescription(hobbyData.about);
+          p.textContent = hobby.summary || "";
 
           card.appendChild(h4);
           card.appendChild(p);
 
+          // Link to hobby page
           card.addEventListener("click", () => {
-            const url = `hobby.html?name=${encodeURIComponent(hobbyData.name)}`;
-            window.location.href = url;
+            window.location.href = `hobby.html?name=${encodeURIComponent(
+              hobby.name
+            )}`;
           });
 
           grid.appendChild(card);
@@ -128,40 +129,36 @@ export function loadHobbiesPage() {
         root.appendChild(section);
       });
 
-      // --- Search/filter logic ---
-      const allSections = Array.from(
-        root.querySelectorAll(".category-section")
-      );
-      const allCards = Array.from(root.querySelectorAll(".hobby-card"));
+      const sections = Array.from(root.querySelectorAll(".category-section"));
+      const cards = Array.from(root.querySelectorAll(".hobby-card"));
 
-      if (searchInput) {
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.trim().toLowerCase();
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
 
-          allSections.forEach((section) => {
-            let visibleCountInSection = 0;
-            const cards = Array.from(section.querySelectorAll(".hobby-card"));
+        sections.forEach((section) => {
+          let visibleCount = 0;
+          const sectionCards = Array.from(
+            section.querySelectorAll(".hobby-card")
+          );
 
-            cards.forEach((card) => {
-              const name = card.querySelector("h4").textContent.toLowerCase();
-              const desc = card.querySelector("p").textContent.toLowerCase();
-              const matches = name.includes(query) || desc.includes(query);
+          sectionCards.forEach((card) => {
+            const name = card.querySelector("h4").textContent.toLowerCase();
+            const desc = card.querySelector("p").textContent.toLowerCase();
 
-              card.style.display = matches ? "" : "none";
-              if (matches) visibleCountInSection++;
-            });
+            const match =
+              name.includes(query) || desc.includes(query) || query === "";
 
-            // Hide section if no cards match
-            section.style.display = visibleCountInSection === 0 ? "none" : "";
+            card.style.display = match ? "" : "none";
+            if (match) visibleCount++;
           });
+
+          // Hide category if no cards match search
+          section.style.display = visibleCount > 0 ? "" : "none";
         });
-      }
+      });
     })
     .catch((err) => {
       console.error("Error loading hobbies page:", err);
-      if (root) {
-        root.innerHTML =
-          "<p>Sorry, we couldn't load the hobbies right now.</p>";
-      }
+      root.innerHTML = "<p>Sorry, we couldn't load hobbies at the moment.</p>";
     });
 }
