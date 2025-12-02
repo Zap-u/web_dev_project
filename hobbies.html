@@ -5,202 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HobbyBC – Hobbies</title>
     <link rel="stylesheet" href="hobbies.css" />
+    <script type="module">
+      import { loadLayout } from "./main.js";
+      import { loadHobbiesPage } from "./hobbies.js";
+
+      loadLayout("hobbies");
+      loadHobbiesPage();
+    </script>
   </head>
   <body>
-    <header>
-      <h1>HobbyBC</h1>
-      <p>Discover your next passion</p>
-    </header>
-
-    <nav>
-      <button onclick="location.href='index.html'">Home</button>
-      <button class="active" onclick="location.href='hobbies.html'">
-        Hobbies
-      </button>
-      <button onclick="location.href='community.html'">Community</button>
-    </nav>
+    <!-- Filled by main.js -->
+    <header id="header"></header>
+    <nav id="nav"></nav>
 
     <main class="page">
-      <section class="category-section">
-        <div class="category-header">
-          <div class="category-title">
-            <h3>Sports &amp; Fitness</h3>
-            <span class="badge">3</span>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Fitness'"
-            style="cursor: pointer"
-          >
-            <h4>Fitness</h4>
-            <p>Build strength, improve endurance, and stay active.</p>
-          </article>
-
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Running'"
-            style="cursor: pointer"
-          >
-            <h4>Running</h4>
-            <p>Boost your stamina and clear your mind with regular runs.</p>
-          </article>
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Yoga'"
-            style="cursor: pointer"
-          >
-            <h4>Yoga</h4>
-            <p>
-              Improve flexibility and reduce stress through mindful movement.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="category-section">
-        <div class="category-header">
-          <div class="category-title">
-            <h3>Arts &amp; Crafts</h3>
-            <span class="badge">3</span>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Painting'"
-            style="cursor: pointer"
-          >
-            <h4>Painting</h4>
-            <p>Express yourself with colors, canvas, and creativity.</p>
-          </article>
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Crafting'"
-            style="cursor: pointer"
-          >
-            <h4>Crafting</h4>
-            <p>Create handmade projects, DIY decor, and gifts.</p>
-          </article>
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Cooking'"
-            style="cursor: pointer"
-          >
-            <h4>Cooking</h4>
-            <p>Experiment with recipes, flavors, and new dishes.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="category-section">
-        <div class="category-header">
-          <div class="category-title">
-            <h3>Books &amp; Visual Media</h3>
-            <span class="badge">3</span>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Photography'"
-            style="cursor: pointer"
-          >
-            <h4>Photography</h4>
-            <p>Capture moments, stories, and scenery with your camera.</p>
-          </article>
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Reading'"
-            style="cursor: pointer"
-          >
-            <h4>Reading</h4>
-            <p>Dive into books and explore new worlds and ideas.</p>
-          </article>
-
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Journaling'"
-            style="cursor: pointer"
-          >
-            <h4>Journaling</h4>
-            <p>Reflect on your day, track goals, and explore your thoughts.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="category-section">
-        <div class="category-header">
-          <div class="category-title">
-            <h3>Games &amp; Puzzles</h3>
-            <span class="badge">3</span>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Gaming'"
-            style="cursor: pointer"
-          >
-            <h4>Gaming</h4>
-            <p>Relax, compete, and connect through video games.</p>
-          </article>
-
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Board%20Games'"
-            style="cursor: pointer"
-          >
-            <h4>Board Games</h4>
-            <p>Challenge friends with strategy, luck, and teamwork.</p>
-          </article>
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Puzzles'"
-            style="cursor: pointer"
-          >
-            <h4>Puzzles</h4>
-            <p>Exercise your brain with jigsaws, logic puzzles, and more.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="category-section">
-        <div class="category-header">
-          <div class="category-title">
-            <h3>Music &amp; Performing Arts</h3>
-            <span class="badge">3</span>
-          </div>
-        </div>
-        <div class="cards-grid">
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Music'"
-            style="cursor: pointer"
-          >
-            <h4>Music</h4>
-            <p>Play instruments, create music, or deepen your listening.</p>
-          </article>
-
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Singing'"
-            style="cursor: pointer"
-          >
-            <h4>Singing</h4>
-            <p>Use your voice to perform, practice, and share songs.</p>
-          </article>
-          <article
-            class="hobby-card"
-            onclick="location.href='hobby.html?name=Dance'"
-            style="cursor: pointer"
-          >
-            <h4>Dance</h4>
-            <p>Express yourself through movement, rhythm, and choreography.</p>
-          </article>
-        </div>
-      </section>
+      <!-- Everything below is rendered via JS + data.json -->
+      <div id="hobbiesRoot"></div>
     </main>
   </body>
 </html>
