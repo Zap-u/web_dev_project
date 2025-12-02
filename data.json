@@ -4,6 +4,7 @@
       {
         "name": "Photography",
         "icon": "https://img.icons8.com/fluency/96/camera.png",
+        "summary": "Capture moments, stories, and scenery with your camera.",
         "about": "Photography is the art of capturing moments, stories, and details through a lens. It can be as simple as phone snapshots or as complex as studio, landscape, or street photography. It encourages you to observe your surroundings more closely and express how you see the world.",
         "gettingStarted": "Begin with the camera you already have and learn basic concepts like exposure, focus, and composition. Try photo walks on campus or around your neighborhood, experimenting with lighting and color. Gradually explore portrait, nature, or still-life photography as you grow comfortable.",
         "tools": [
@@ -16,6 +17,7 @@
       {
         "name": "Reading",
         "icon": "https://img.icons8.com/fluency/96/open-book--v2.png",
+        "summary": "Dive into books and explore new worlds and ideas.",
         "about": "Reading lets you explore new worlds, perspectives, and ideas. It can be relaxing, intellectually stimulating, and a great escape from academic stress. You can read fiction, nonfiction, poetry, graphic novels—whatever keeps you engaged.",
         "gettingStarted": "Start by choosing genres you already enjoy, such as fantasy, sci-fi, memoir, or historical fiction. Establish a comfortable reading routine—ten minutes before bed, on the T ride, or between classes. Track books you want to read to stay motivated.",
         "tools": [
@@ -28,6 +30,7 @@
       {
         "name": "Gaming",
         "icon": "https://img.icons8.com/fluency/96/controller.png",
+        "summary": "Relax, compete, and connect through video games.",
         "about": "Gaming blends storytelling, interactivity, and skill into a uniquely immersive experience. It can be casual, competitive, relaxing, or social depending on the game. Many genres exist, from puzzle games to fast-paced action to narrative adventures.",
         "gettingStarted": "Explore a variety of genres—story-driven games, co-op games, puzzle games, strategy titles—and see which ones fit your personality. Try demos, watch short gameplay reviews, and play beginner-friendly titles to build familiarity.",
         "tools": [
@@ -40,6 +43,7 @@
       {
         "name": "Music",
         "icon": "https://img.icons8.com/fluency/96/musical-notes.png",
+        "summary": "Play instruments, create music, or deepen your listening.",
         "about": "Music is a universal form of expression that helps you explore rhythm, creativity, and emotion. Whether you’re listening, performing, composing, or learning an instrument, music can be deeply personal and socially enriching.",
         "gettingStarted": "Pick one entry point—listening more intentionally, learning an instrument, singing, or trying beginner music theory. Establish a simple practice routine and explore tutorials or intro-level songs.",
         "tools": [
@@ -56,6 +60,7 @@
       {
         "name": "Fitness",
         "icon": "https://img.icons8.com/fluency/96/dumbbell.png",
+        "summary": "Build strength, improve endurance, and stay active.",
         "about": "Fitness helps you build strength, mobility, and long-term health through consistent exercise. It boosts energy, improves sleep, and reduces stress—making it a useful routine for students.",
         "gettingStarted": "Start with simple bodyweight exercises, brisk walks, short runs, or basic gym machines. Focus on routine first, intensity second. Increase difficulty slowly as your stamina improves.",
         "tools": [
@@ -72,6 +77,7 @@
       {
         "name": "Cooking",
         "icon": "https://img.icons8.com/fluency/96/cooking-book.png",
+        "summary": "Experiment with recipes, flavors, and new dishes.",
         "about": "Cooking lets you prepare meals that match your taste, dietary needs, and budget. It is a creative hobby that teaches valuable life skills and encourages experimentation with flavors and ingredients.",
         "gettingStarted": "Start with very simple recipes and gradually learn techniques like sautéing, seasoning, boiling pasta, and baking. Once confident, experiment with spices, sauces, and international cuisines.",
         "tools": [
@@ -84,6 +90,7 @@
       {
         "name": "Painting",
         "icon": "https://img.icons8.com/fluency/96/paint-palette.png",
+        "summary": "Express yourself with colors, canvas, and creativity.",
         "about": "Painting lets you express imagination and emotion through color, shape, and texture. You can explore acrylic, watercolor, gouache, or digital painting depending on your interests.",
         "gettingStarted": "Start with beginner exercises like color mixing, gradients, and simple shapes. Focus on the process rather than the final product and slowly build up to full paintings.",
         "tools": [
@@ -96,6 +103,7 @@
       {
         "name": "Crafting",
         "icon": "https://img.icons8.com/parakeet/96/hot-glue-gun.png",
+        "summary": "Create handmade projects, DIY decor, and gifts.",
         "about": "Crafting includes sewing, crocheting, origami, jewelry-making, scrapbooking, and more. It’s a hands-on, calming hobby that gives you something physical and creative to enjoy.",
         "gettingStarted": "Pick one craft type and follow a simple beginner project. Learn basic techniques slowly and move to more advanced projects as you gain confidence.",
         "tools": [
@@ -110,6 +118,7 @@
       {
         "name": "Running",
         "icon": "https://img.icons8.com/fluency/96/running.png",
+        "summary": "Boost your stamina and clear your mind with regular runs.",
         "about": "Running improves endurance, mental clarity, and cardiovascular health. It’s one of the most accessible and flexible forms of exercise.",
         "gettingStarted": "Start with run-walk intervals and increase distance gradually. Focus on breathing, posture, and consistency.",
         "tools": [
@@ -126,6 +135,7 @@
       {
         "name": "Yoga",
         "icon": "https://img.icons8.com/?size=100&id=16959&format=png&color=000000",
+        "summary": "Improve flexibility and reduce stress through mindful movement.",
         "about": "Yoga improves flexibility, posture, and mental calm through mindful movement and breathing practices.",
         "gettingStarted": "Learn foundational poses using beginner classes online or in person. Focus on slow, intentional movement rather than intensity.",
         "tools": [
@@ -138,6 +148,7 @@
       {
         "name": "Journaling",
         "icon": "https://img.icons8.com/fluency/96/journal.png",
+        "summary": "Reflect on your day, track goals, and explore your thoughts.",
         "about": "Journaling provides a private place to organize thoughts, reflect on experiences, and express emotions. It can help with self-awareness and stress relief.",
         "gettingStarted": "Start with short entries—daily reflections, gratitude lists, or freewriting. Don’t worry about grammar; just write honestly.",
         "tools": [
@@ -150,6 +161,7 @@
       {
         "name": "Board Games",
         "icon": "https://img.icons8.com/?size=100&id=CcTzagj3ZPvC&format=png&color=000000",
+        "summary": "Challenge friends with strategy, luck, and teamwork.",
         "about": "Board games encourage problem-solving, strategy, and social interaction. They range from lighthearted party games to deep, strategic challenges.",
         "gettingStarted": "Begin with simple games to learn basic mechanics, then explore more complex strategy or cooperative games.",
         "tools": [
@@ -162,6 +174,7 @@
       {
         "name": "Puzzles",
         "icon": "https://img.icons8.com/?size=100&id=tAjvBYh8Emhg&format=png&color=000000",
+        "summary": "Exercise your brain with jigsaws, logic puzzles, and more.",
         "about": "Puzzles build pattern recognition and problem-solving skills while promoting calm focus. They include jigsaws, logic puzzles, sudoku, and crosswords.",
         "gettingStarted": "Choose a puzzle type you enjoy and start with an easy difficulty. Increase complexity gradually.",
         "tools": [
@@ -174,6 +187,7 @@
       {
         "name": "Singing",
         "icon": "https://img.icons8.com/fluency/96/microphone.png",
+        "summary": "Use your voice to perform, practice, and share songs.",
         "about": "Singing strengthens your vocal control, rhythm, and confidence. It can be expressive, social, or simply fun.",
         "gettingStarted": "Warm up with humming or gentle scales. Sing songs you enjoy and practice good breath support before working on harder pieces.",
         "tools": [
@@ -186,6 +200,7 @@
       {
         "name": "Dance",
         "icon": "https://img.icons8.com/?size=100&id=16883&format=png&color=000000",
+        "summary": "Express yourself through movement, rhythm, and choreography.",
         "about": "Dance is a creative movement art that improves coordination, rhythm, and physical fitness. Styles range from hip-hop to contemporary to cultural forms.",
         "gettingStarted": "Follow beginner tutorials online and learn basic steps. Practice in a comfortable space and gradually try more complex routines.",
         "tools": [
